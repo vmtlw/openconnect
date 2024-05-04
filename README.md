@@ -79,8 +79,8 @@ certtool --generate-privkey --outfile client-privkey.pem
 vim client-cert.cfg
 ```
 
-Добавьте в файл следующие строки. Uid должен быть именем пользователя в /etc/ocserv/ocpasswdфайле.
-
+Добавьте в файл следующие строки. Uid должен быть именем пользователя в /etc/ocserv/ocpasswd файле.
+```
 # X.509 Certificate options
 # Организация.
 organization = " vpn.example.com " 
@@ -102,7 +102,7 @@ signing_key
 
 # Будет ли этот сертификат использоваться для шифрования данных (необходим в наборах шифров TLS RSA). Обратите внимание, что для шифрования и подписи предпочтительно использовать разные ключи. 
 encryption_key
-`
+```
 Сохраните и закройте файл. Затем выполните следующую команду, чтобы сгенерировать сертификат клиента, который будет подписан закрытым ключом CA.
 ```
 certtool --generate-certificate --load-privkey client-privkey.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-privkey.pem --template client-cert.cfg - -outfile клиент-cert.pem
