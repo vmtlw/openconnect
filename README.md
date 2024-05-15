@@ -39,7 +39,7 @@ vim ca-cert.cfg
 # X.509 Certificate options
 
 # Организация. 
-organozation = "vpn.example.com" 
+organization = "vpn.example.com" 
 
 # Общее имя владельца сертификата. 
 cn = "example.com CA" 
