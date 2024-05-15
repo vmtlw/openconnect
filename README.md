@@ -106,12 +106,12 @@ encryption_key
 ```
 Сохраните и закройте файл. Затем выполните следующую команду, чтобы сгенерировать сертификат клиента, который будет подписан закрытым ключом CA.
 ```
-certtool --generate-certificate --load-privkey client-privkey.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-privkey.pem --template client-cert.cfg - -outfile client-cert.pem
+certtool --generate-certificate --load-privkey client-privkey.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-privkey.pem --template client-cert.cfg --outfile client-cert.pem
 ```
 
 Объедините закрытый ключ клиента и сертификат в файл PKCS #12, защищенный PIN-кодом.
 ```
-certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem --pkcs-cipher aes-256 --outfile client.p12 --outder
+certtool --to-p12 --load-privkey client-privkey.pem --load-certificate client-cert.pem --pkcs-cipher aes-256 --outfile client.p12 --outder --p12-name admin --empty-password 
 ```
                                         
 ### aутентификация сертификата ocserv
